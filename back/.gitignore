@@ -1,0 +1,10 @@
+# virtual environemnt
+
+venv/
+env/
+
+
+# env
+.env
+.env.production
+.env.local
