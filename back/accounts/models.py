@@ -3,6 +3,8 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import EmailValidator
 
+from .managers import UserManager
+
 
 class User(AbstractUser):
     class Role(models.TextChoices):
@@ -32,6 +34,8 @@ class User(AbstractUser):
     first_name = models.CharField(_("Nombres"),max_length=50,blank=True,db_index=True)
     last_name = models.CharField(_("Apellidos"),max_length=50,blank=True,db_index=True)
     role = models.CharField(_("Rol"),max_length=20,blank=True,db_index=True,choices=Role.choices)
+
+    objects = UserManager()
 
     REQUIRED_FIELDS = ["email","first_name","last_name","role"]
 
