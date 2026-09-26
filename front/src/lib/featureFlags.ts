@@ -1,0 +1,1 @@
+export const PUBLIC_REGISTRATION_ENABLED = false;
