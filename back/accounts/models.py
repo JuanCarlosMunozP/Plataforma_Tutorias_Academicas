@@ -8,13 +8,13 @@ from .managers import UserManager
 
 class User(AbstractUser):
     class Role(models.TextChoices):
-        STUDENT = "STUDENT",_("Estudiante")
-        TUTOR = "TUTOR",_("Tutor")
-        COORDINATOR = "COORDINATOR",_("Coordinador")
-        SUPERADMIN = "SUPERADMINISTRATOR",_("Superadministrador")
-        ADMINISTRATOR = "ADMINISTRATOR",_("Administrador")
-        DIRECCION = "DIRECCION",_("Direccion")
-        AUDITOR = "AUDITOR",_("Auditor")
+        STUDENT = "student",_("Estudiante")
+        TUTOR = "tutor",_("Tutor")
+        COORDINATOR = "coordinator",_("Coordinador")
+        SUPERADMIN = "superadmin",_("Superadministrador")
+        ADMINISTRATOR = "admin",_("Administrador")
+        DIRECCION = "direccion",_("Direccion")
+        AUDITOR = "auditor",_("Auditor")
 
     email = models.EmailField(
         _("Correo institucional"),
@@ -52,7 +52,7 @@ class User(AbstractUser):
     
     def __str__(self) -> str:
         return f"{self.username} ({self.get_role_display()})" #type: ignore[attr-defined]
-    
+
 
     @property
     def is_admin_role(self) -> bool:

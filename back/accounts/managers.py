@@ -13,7 +13,7 @@ class UserQuerySet(models.QuerySet):
         return self.filter(role=role)
 
     def staff_role(self) -> "UserQuerySet":
-        return self.filter(role__in=["SUPERADMINISTRATOR", "ADMINISTRATOR"])
+        return self.filter(role__in=["superadmin", "admin"])
 
 class UserManager(BaseUserManager.from_queryset(UserQuerySet)):
     use_in_migrations = True
